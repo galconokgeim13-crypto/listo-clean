@@ -3,23 +3,8 @@
     "name": "Listo-clean",
     "slug": "listo-clean",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "assetBundlePatterns": ["**/*"],
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
       "package": "com.galinageim.listoclean"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "4e9c2287-437d-47b8-b475-3e6758dfa648"
-      }
     }
   }
 }
