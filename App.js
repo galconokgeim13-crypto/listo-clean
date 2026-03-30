@@ -6,11 +6,15 @@ export default function App() {
   const [text, setText] = useState('');
 
   const addProduct = () => {
-    if (text === '') return;
-    const newList = [{ id: Date.now().toString(), name: text }, ...products];
-    setProducts(newList);
-    setText('');
-  };
+  if (!text.trim()) return;
+
+  setProducts(prev => [
+    { id: Date.now().toString(), name: text },
+    ...prev
+  ]);
+
+  setText('');
+};
 
   return (
     <View style={{ flex: 1, padding: 20, marginTop: 40 }}>
