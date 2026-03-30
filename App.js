@@ -17,7 +17,26 @@ export default function App() {
 };
 
   return (
-    <View style={{ flex: 1, padding: 20, marginTop: 40 }}>
+ import React, { useState } from 'react';
+import { SafeAreaView, View, Text, TextInput, Button, FlatList } from 'react-native';
+
+export default function App() {
+  const [products, setProducts] = useState([]);
+  const [text, setText] = useState('');
+
+  const addProduct = () => {
+    if (!text.trim()) return;
+
+    setProducts(prev => [
+      { id: Date.now().toString(), name: text.trim() },
+      ...prev
+    ]);
+
+    setText('');
+  };
+
+  return (
+    <SafeAreaView style={{ flex: 1, padding: 20 }}>
       <Text style={{ fontSize: 24, fontWeight: 'bold' }}>Список продуктов</Text>
       
       <View style={{ flexDirection: 'row', marginTop: 20, marginBottom: 20 }}>
@@ -29,6 +48,17 @@ export default function App() {
         />
         <Button title="Добавить" onPress={addProduct} />
       </View>
+      
+      <FlatList
+        data={products}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <Text style={{ fontSize: 18, marginTop: 5 }}>• {item.name}</Text>
+        )}
+      />
+    </SafeAreaView>
+  );
+}
       
       <FlatList
         data={products}
