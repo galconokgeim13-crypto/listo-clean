@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, FlatList } from 'react-native';
+import { SafeAreaView, <SafeAreaView style={{ flex: 1, padding: 20 }}> Text, TextInput, Button, FlatList } from 'react-native';
 
 export default function App() {
   const [products, setProducts] = useState([]);
@@ -9,7 +9,7 @@ export default function App() {
   if (!text.trim()) return;
 
   setProducts(prev => [
-    { id: Date.now().toString(), name: text },
+    { id: Date.now().toString(), name: text.trim()},
     ...prev
   ]);
 
@@ -32,7 +32,7 @@ export default function App() {
       
       <FlatList
         data={products}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => <Text style={{ fontSize: 18, marginTop: 5 }}>• {item.name}</Text>}
       />
     </View>
