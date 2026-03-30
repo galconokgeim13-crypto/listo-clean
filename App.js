@@ -34,7 +34,7 @@ export default function App() {
 
       <FlatList
         data={products}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <Text style={{ fontSize: 18, marginTop: 5 }}>
             • {item.name}
