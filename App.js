@@ -9,11 +9,19 @@ export default function App() {
     if (!text.trim()) return;
 
     setProducts(prev => [
-      { id: Date.now().toString(), name: text.trim() },
+      { id: Math.random().toString(), name: text.trim() },
       ...prev
     ]);
 
     setText('');
+  };
+
+  const renderItem = ({ item }) => {
+    return (
+      <Text style={{ fontSize: 18, marginTop: 5 }}>
+        • {item.name}
+      </Text>
+    );
   };
 
   return (
@@ -35,11 +43,7 @@ export default function App() {
       <FlatList
         data={products}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <Text style={{ fontSize: 18, marginTop: 5 }}>
-            • {item.name}
-          </Text>
-        )}
+        renderItem={renderItem}
       />
     </SafeAreaView>
   );
