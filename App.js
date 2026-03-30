@@ -32,7 +32,7 @@ export default function App() {
         }}
       />
       
-      <Button title="Добавить" onPress={addProduct} />
+      <Button title="➕ Добавить" onPress={addProduct} />
       
       <FlatList
         data={products}
@@ -47,4 +47,3 @@ export default function App() {
     </View>
   );
 }
- 
